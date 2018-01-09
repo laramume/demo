@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Category>DesignPattern</Category>
+    <Title>Greeting from a function</Title>
+    <Owners>
+        <Owner displayname="Andrew Ivanov" email="anivan@microsoft.com"/>
+    </Owners>
+    <PublishedOn>12/31/2016</PublishedOn>
+    <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+    <Description>Something even more awesome.</Description>
+    <Summary src="Summary.md" format="markdown"/>
+    <EstimatedTime>3 Minutes</EstimatedTime>
+    <ProvisioningSteps>
+        <Function name="greet" title="Calling a function" retriable="true">
+            <Parameters>
+                <Parameter name="name" type="string" description="What's your name?" />
+            </Parameters>
+        </Function>
+        <Manual title="Done">
+          <Instructions src="Instructions.md" format="markdown" />
+        </Manual>
+    </ProvisioningSteps>
+</Template>
