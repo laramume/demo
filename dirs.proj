@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\Build.props" />
-  <!--
-    Following is the recommended CBT tree structure:
-    Packages: put here all packaging related projects: Azure (*.ccproj), MSIs (*.wixproj), NuGet (*.nuproj).
-    Source: dev code.
-    Tests: test code.
-  -->
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project=".\Build.props" />
   <ItemGroup>
-    <ProjectFile Include="Packages\dirs.proj" />
-    <ProjectFile Include="Source\dirs.proj" />
-   <ProjectFile Include="Deploy\deploy.proj" />
+    <!-- 
+       List here the relative paths to the traversal projects or regular projects directly in a subdirectory of the codebase root.
+       _BuildCommon contains configurable projects for special global build actions, for example Signing, Policheck, Dttp.
+       The recommended tree structure is to have all code under Product, with subfolders for Source, Tests, and Packages.
+       If you wish to deviate from these defaults, you will need to tune some settings, for example in _BuildCommon\Extensions\ProjectCop.props.
+    -->
+    <ProjectFile Include="Product\dirs.proj" />
+    <ProjectFile Include="_BuildCommon\dirs.proj" />    
   </ItemGroup>
   <Import Project="$(BuildExtensionsPath)\Traversal.targets" />
 </Project>
